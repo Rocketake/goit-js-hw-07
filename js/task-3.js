@@ -1,33 +1,12 @@
-class StringBuilder {
-  #value;
+const input = document.querySelector('#name-input');
+const span = document.querySelector('#name-output');
 
-  constructor(initialValue) {
-    this.#value = initialValue;
+const handleInput = event => {
+  if (event.target.value !== '') {
+    span.textContent = event.target.value.trim();
+  } else {
+    span.textContent = 'Anonymous';
   }
+};
 
-  getValue() {
-    return this.#value;
-  }
-
-  padEnd(str) {
-    this.#value = `${this.#value}${str}`;
-  }
-
-  padStart(str) {
-    this.#value = `${str}${this.#value}`;
-  }
-
-  padBoth(str) {
-    this.#value = `${str}${this.#value}${str}`;
-  }
-}
-
-console.log('Task-3');
-const builder = new StringBuilder('.');
-console.log(builder.getValue()); // "."
-builder.padStart('^');
-console.log(builder.getValue()); // "^."
-builder.padEnd('^');
-console.log(builder.getValue()); // "^.^"
-builder.padBoth('=');
-console.log(builder.getValue()); // "=^.^="
+input.addEventListener('input', handleInput);
