@@ -27,6 +27,8 @@ const images = [
 
 const gallery = document.querySelector('.gallery');
 
+const array = [];
+
 for (const image of images) {
   const item = document.createElement('li');
   const img = document.createElement('img');
@@ -34,6 +36,7 @@ for (const image of images) {
   img.classList.add('gallery-img');
   img.src = image.url;
   img.alt = image.alt;
-
-  gallery.append(item);
+  array.push(item);
 }
+
+gallery.append(...array);

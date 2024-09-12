@@ -20,7 +20,7 @@ const createBoxes = amount => {
     div.style.height = `${boxSize}px`;
     div.style.backgroundColor = getRandomHexColor();
     boxSize += 10;
-    boxes.append(div);
+    boxesField.append(div);
     input.value = '';
   }
 };
@@ -30,7 +30,7 @@ const destroyBoxes = () => {
 };
 
 createButton.addEventListener('click', event => {
-  if (1 <= input.value <= 100) {
+  if (Number(input.value) >= 1 && Number(input.value) <= 100) {
     createBoxes(input.value);
   }
 });
