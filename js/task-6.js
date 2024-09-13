@@ -13,6 +13,7 @@ const boxesField = document.querySelector('#boxes');
 
 const createBoxes = amount => {
   destroyBoxes();
+  let divBoxes = [];
   let boxSize = 30;
   for (let i = 0; i < amount; i++) {
     const div = document.createElement('div');
@@ -20,9 +21,10 @@ const createBoxes = amount => {
     div.style.height = `${boxSize}px`;
     div.style.backgroundColor = getRandomHexColor();
     boxSize += 10;
-    boxesField.append(div);
+    divBoxes.push(div);
     input.value = '';
   }
+  boxesField.append(...divBoxes);
 };
 
 const destroyBoxes = () => {
